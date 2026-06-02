@@ -1,0 +1,2 @@
+{"id": "sec-1", "schema": "Security", "properties": {"isin": ["US0378331005"], "name": ["ACME Bond 2030"], "ticker": ["ACM30"], "figiCode": ["BBG000000001"], "issuer": ["ent-acme"]}}
+{"id": "sec-2", "schema": "Security", "properties": {"isin": ["XS1234567890"], "name": ["Foreign Note"]}}

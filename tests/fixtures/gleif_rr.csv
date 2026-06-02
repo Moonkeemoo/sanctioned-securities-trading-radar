@@ -1,0 +1,2 @@
+Relationship.StartNode.NodeID,Relationship.EndNode.NodeID,Relationship.RelationshipType
+5493000000000000SUB1,5493000000000000ACME,IS_DIRECTLY_CONSOLIDATED_BY

@@ -1,0 +1,2 @@
+{"id": "ent-acme", "schema": "Company", "properties": {"name": ["ACME Holding"], "leiCode": ["5493000000000000ACME"], "country": ["ru"], "topics": ["sanction"]}}
+{"id": "ent-nolei", "schema": "Company", "properties": {"name": ["No LEI Corp"], "country": ["ru"], "topics": ["sanction"]}}
