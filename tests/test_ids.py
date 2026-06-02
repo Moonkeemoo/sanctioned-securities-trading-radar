@@ -29,3 +29,10 @@ def test_us_isin_to_cusip_rejects_non_us():
 
 def test_cusip_to_us_isin_roundtrip():
     assert cusip_to_us_isin("037833100") == "US0378331005"
+
+def test_valid_isin_microsoft():
+    assert is_valid_isin("US5949181045") is True
+
+def test_us_isin_to_cusip_rejects_bad_check_digit():
+    with pytest.raises(ValueError):
+        us_isin_to_cusip("US0378331009")  # valid format, wrong check digit

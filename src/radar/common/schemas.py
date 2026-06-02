@@ -1,7 +1,7 @@
 """Column-name constants for interim tables. One source of truth so stages agree."""
 
 # stage1 outputs
-SANCTIONED_SECURITIES = ["isin", "ticker", "figi", "issuer_name", "issuer_entity_id", "source"]
+SANCTIONED_SECURITIES = ["isin", "ticker", "figi", "security_name", "issuer_entity_id", "source"]
 SANCTIONED_ENTITIES = ["entity_id", "name", "lei", "country", "topics"]
 ISIN_TO_LEI = ["isin", "lei"]
 LEI_RELATIONS = ["parent_lei", "child_lei", "relation_type"]

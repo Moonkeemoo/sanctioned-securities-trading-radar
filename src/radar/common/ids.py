@@ -70,6 +70,8 @@ def cusip_check_digit(cusip9: str) -> int:
 def us_isin_to_cusip(isin: str) -> str:
     if not isin.startswith("US") or len(isin) != 12:
         raise ValueError(f"Not a US ISIN: {isin!r}")
+    if isin_check_digit(isin[:11]) != int(isin[11]):
+        raise ValueError(f"ISIN check digit invalid: {isin!r}")
     return isin[2:11]
 
 

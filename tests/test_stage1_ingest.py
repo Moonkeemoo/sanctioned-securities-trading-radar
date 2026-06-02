@@ -9,7 +9,7 @@ FIX = Path(__file__).parent / "fixtures"
 def test_parse_securities_extracts_first_isin_and_issuer():
     df = parse_securities(FIX / "opensanctions_securities.ftm.json")
     row = df.filter(pl.col("isin") == "US0378331005").to_dicts()[0]
-    assert row["issuer_name"] == "ACME Bond 2030"
+    assert row["security_name"] == "ACME Bond 2030"
     assert row["issuer_entity_id"] == "ent-acme"
     assert row["figi"] == "BBG000000001"
 

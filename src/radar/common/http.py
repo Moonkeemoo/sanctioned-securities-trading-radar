@@ -1,4 +1,4 @@
-"""HTTP GET client with on-disk JSON cache, retry, and a minimum request interval."""
+"""HTTP GET/POST client with on-disk JSON cache, retry, and a minimum request interval."""
 from __future__ import annotations
 
 import hashlib
@@ -27,7 +27,7 @@ class CachedClient:
         path = self._cache_path(key)
         if path.exists():
             return json.loads(path.read_text(encoding="utf-8"))
-        data = self._fetch_json(url, params)
+        data = self._with_retry(lambda: self._do_get(url, params))
         path.write_text(json.dumps(data), encoding="utf-8")
         return data
 
@@ -36,12 +36,19 @@ class CachedClient:
         path = self._cache_path(key)
         if path.exists():
             return json.loads(path.read_text(encoding="utf-8"))
-        self._throttle()
-        resp = self._client.post(url, json=body)
-        resp.raise_for_status()
-        data = resp.json()
+        data = self._with_retry(lambda: self._do_post(url, body))
         path.write_text(json.dumps(data), encoding="utf-8")
         return data
+
+    def _do_get(self, url, params):
+        resp = self._client.get(url, params=params)
+        resp.raise_for_status()
+        return resp.json()
+
+    def _do_post(self, url, body):
+        resp = self._client.post(url, json=body)
+        resp.raise_for_status()
+        return resp.json()
 
     def _throttle(self) -> None:
         if self.min_interval:
@@ -50,15 +57,13 @@ class CachedClient:
                 time.sleep(wait)
         self._last_request = time.monotonic()
 
-    def _fetch_json(self, url, params):
+    def _with_retry(self, fn):
         last_exc = None
         for attempt in range(self.max_retries):
             self._throttle()
             try:
-                resp = self._client.get(url, params=params)
-                resp.raise_for_status()
-                return resp.json()
+                return fn()
             except (httpx.HTTPError, ValueError) as exc:  # ValueError = bad JSON
                 last_exc = exc
                 time.sleep(0.5 * (attempt + 1))
-        raise RuntimeError(f"GET failed after {self.max_retries} attempts: {url}") from last_exc
+        raise RuntimeError(f"request failed after {self.max_retries} attempts") from last_exc

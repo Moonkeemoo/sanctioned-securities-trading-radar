@@ -27,12 +27,12 @@ def parse_securities(path: Path) -> pl.DataFrame:
             "isin": _first(p, "isin"),
             "ticker": _first(p, "ticker"),
             "figi": _first(p, "figiCode"),
-            "issuer_name": _first(p, "name"),
+            "security_name": _first(p, "name"),
             "issuer_entity_id": _first(p, "issuer"),
             "source": "opensanctions",
         })
     df = pl.DataFrame(rows, schema={c: pl.Utf8 for c in
-        ["isin", "ticker", "figi", "issuer_name", "issuer_entity_id", "source"]})
+        ["isin", "ticker", "figi", "security_name", "issuer_entity_id", "source"]})
     return df.filter(pl.col("isin").is_not_null())
 
 
