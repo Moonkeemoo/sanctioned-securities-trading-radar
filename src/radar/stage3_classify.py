@@ -9,25 +9,34 @@ from radar.common import log
 from radar.common.ids import us_isin_to_cusip
 from radar.common.http import CachedClient
 
-_DEBT_TYPES = {"Corp", "Govt", "Mtge", "Muni", "Pfd", "Bond", "Note"}
+# Instrument types that actually trade on FINRA TRACE (debt). Pfd (preferred equity)
+# and Muni (reports to MSRB EMMA, not TRACE) are deliberately excluded.
+DEBT_TYPES = {"Corp", "Govt", "Mtge", "Bond", "Note"}
 OPENFIGI_URL = "https://api.openfigi.com/v3/mapping"
 
 
 def is_debt_type(security_type: str | None) -> bool:
-    return security_type in _DEBT_TYPES
+    return security_type in DEBT_TYPES
 
 
 def classify_isin(isin: str, security_type: str | None) -> dict:
     is_us = isin.startswith("US")
-    cusip = us_isin_to_cusip(isin) if is_us else None
+    cusip = None
+    gap = None
+    if is_us:
+        try:
+            cusip = us_isin_to_cusip(isin)
+        except ValueError:
+            gap = "invalid_us_isin_check_digit"  # bad data, degrade gracefully
+    else:
+        gap = "non_us_isin_no_cusip_map"
     debt = is_debt_type(security_type)
-    gap = None if is_us else "non_us_isin_no_cusip_map"
     return {
         "isin": isin,
         "is_us": is_us,
         "cusip": cusip,
         "security_type": security_type,
-        "trace_eligible_guess": bool(is_us and debt),
+        "trace_eligible_guess": bool(is_us and debt and cusip is not None),
         "gap_reason": gap,
     }
 
@@ -42,6 +51,9 @@ def lookup_types(isins: list[str], client: CachedClient, batch_size: int = 10) -
             resp = client.post_json(OPENFIGI_URL, body=body)
         except Exception:  # noqa: BLE001 — rate-limited/blocked: record and continue
             log.gap("stage3", "openfigi_lookup_failed", len(chunk))
+            continue
+        if not isinstance(resp, list):  # API error object instead of a results list
+            log.gap("stage3", "openfigi_unexpected_response", len(chunk))
             continue
         for isin, entry in zip(chunk, resp):
             data = entry.get("data") if isinstance(entry, dict) else None
@@ -62,3 +74,5 @@ def run(interim_dir: Path, cache_dir: Path) -> None:
     log.metric("stage3", "us_isins", df.filter(pl.col("is_us")).height)
     log.metric("stage3", "trace_eligible_guess", df.filter(pl.col("trace_eligible_guess")).height)
     log.gap("stage3", "non_us_isin_no_cusip_map", df.filter(~pl.col("is_us")).height)
+    log.gap("stage3", "invalid_us_isin_check_digit",
+            df.filter(pl.col("gap_reason") == "invalid_us_isin_check_digit").height)

@@ -10,10 +10,11 @@ from radar import stage1_ingest, stage2_ownership, stage3_classify, stage4_activ
 
 
 def _classify_offline(interim_dir: Path) -> None:
-    """Sample mode: classify without OpenFIGI (security_type unknown -> not eligible by type,
-    but US ISINs still derive CUSIP). Keeps the e2e test network-free."""
+    """Sample mode: classify with UNKNOWN security_type (None) so nothing is marked
+    TRACE-eligible by type (US ISINs still derive a CUSIP). Keeps the e2e smoke test
+    network-free and avoids inflating the sample funnel's N6."""
     cand = pl.read_parquet(interim_dir / "candidate_isins.parquet")
-    rows = [stage3_classify.classify_isin(isin, security_type="Corp")
+    rows = [stage3_classify.classify_isin(isin, security_type=None)
             for isin in cand["isin"].to_list()]
     pl.DataFrame(rows).write_parquet(interim_dir / "classified.parquet")
 
@@ -30,7 +31,7 @@ def run_pipeline(raw_dir, interim_dir, out_dir, cache_dir, *, sample: bool, fetc
     else:
         stage3_classify.run(interim_dir, cache_dir)
         stage4_activity.run(interim_dir, cache_dir, fetched_at)
-    stage5_report.run(interim_dir, out_dir)
+    stage5_report.run(interim_dir, out_dir, sample=sample)
 
 
 def main() -> None:
