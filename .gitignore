@@ -5,6 +5,7 @@ data/interim/
 *.duckdb
 
 # Python
+*.egg-info/
 __pycache__/
 *.py[cod]
 .venv/
