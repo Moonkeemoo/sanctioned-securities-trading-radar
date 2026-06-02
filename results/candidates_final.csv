@@ -1,0 +1,87 @@
+isin,cusip,layer,issuer_or_parent,country,securityType2,is_bond
+US71674T1025,71674T102,direct,Atlas Mining LLC,gb;ru,,false
+US1261321095,126132109,direct,CNOOC Limited,cn;hk,Depositary Receipt,false
+US12634GAC78,12634GAC7,direct,CNOOC Limited,cn;hk,Corp,true
+US12504PAK66,12504PAK6,direct,CREDIT BANK OF MOSCOW PUBLIC JOINT STOCK COMPANY,ru,Corp,true
+US1689261030,168926103,direct,China Communications Construction Company Limited,cn,Depositary Receipt,false
+US16941M1099,16941M109,direct,China Mobile Limited,cn;hk,Depositary Receipt,false
+US1694261033,169426103,direct,China Telecom Corporation Limited,cn,,false
+US16945R1041,16945R104,direct,China Unicom (Hong Kong) Limited,cn;hk,Depositary Receipt,false
+US25161EAB74,25161EAB7,direct,Development Bank of the Republic of Belarus,by,Govt,true
+US69343P1057,69343P105,direct,LUKOIL OAO,ru,Depositary Receipt,false
+US69343P3038,69343P303,direct,LUKOIL OAO,ru,,false
+US69343P5017,69343P501,direct,LUKOIL OAO,ru,,false
+US69343P6007,69343P600,direct,LUKOIL OAO,ru,,false
+US69343P2048,69343P204,direct,LUKOIL OAO,ru,Depositary Receipt,false
+US69343P7096,69343P709,direct,LUKOIL OAO,ru,,false
+US69343P4028,69343P402,direct,LUKOIL OAO,ru,,false
+US54988LAB27,54988LAB2,direct,LUKOIL OAO,ru,Corp,true
+US58517T2096,58517T209,direct,Megafon PAO,ru,,false
+US78307AAE38,78307AAE3,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ADB61,78307ADB6,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ACQ40,78307ACQ4,direct,Ministry of Finance of the Russian Federation,ru,,false
+US78307ADG58,78307ADG5,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ACR23,78307ACR2,direct,Ministry of Finance of the Russian Federation,ru,,false
+US78307ACT88,78307ACT8,direct,Ministry of Finance of the Russian Federation,ru,,false
+US78307ADH32,78307ADH3,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ADE01,78307ADE0,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ACS06,78307ACS0,direct,Ministry of Finance of the Russian Federation,ru,,false
+US78307ACX90,78307ACX9,direct,Ministry of Finance of the Russian Federation,ru,,false
+US78307ACZ49,78307ACZ4,direct,Ministry of Finance of the Russian Federation,ru,Govt,true
+US78307ACU51,78307ACU5,direct,Ministry of Finance of the Russian Federation,ru,,false
+US6393461057,639346105,direct,Nayara Energy Limited,in,,false
+US6698881090,669888109,direct,OAO NOVATEK,ru,Depositary Receipt,false
+US67812M2070,67812M207,direct,Open Joint-Stock Company Rosneft Oil Company,ru,Depositary Receipt,false
+US67011U1097,67011U109,direct,PUBLIC JOINT STOCK COMPANY NOVOROSSIYSK COMMERCIAL SEA PORT,ru,Depositary Receipt,false
+US67011U2087,67011U208,direct,PUBLIC JOINT STOCK COMPANY NOVOROSSIYSK COMMERCIAL SEA PORT,ru,Depositary Receipt,false
+US7785291078,778529107,direct,PUBLIC JOINT STOCK COMPANY ROSTELECOM,ru,Depositary Receipt,false
+US7821834048,782183404,direct,PUBLIC JOINT STOCK COMPANY RUSHYDRO,ru,Depositary Receipt,false
+US80585Y3080,80585Y308,direct,PUBLIC JOINT STOCK COMPANY SBERBANK OF RUSSIA,cn;in;ru,Depositary Receipt,false
+US80585Y1001,80585Y100,direct,PUBLIC JOINT STOCK COMPANY SBERBANK OF RUSSIA,cn;in;ru,,false
+US80585Y4070,80585Y407,direct,PUBLIC JOINT STOCK COMPANY SBERBANK OF RUSSIA,cn;in;ru,Depositary Receipt,false
+US5838406081,583840608,direct,PUBLICHNOE AKTSIONERNOE OBSHCHESTVO MECHEL,ru,Depositary Receipt,false
+US716558AC52,716558AC5,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAY10,P7807HAY1,direct,"Petroleos De Venezuela, S.A.",ve,,false
+USP7807HAM71,P7807HAM7,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US716558AE19,716558AE1,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAP03,P7807HAP0,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAV70,P7807HAV7,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US716558AH40,716558AH4,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAR68,P7807HAR6,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US716558AG66,716558AG6,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US716558AD36,716558AD3,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US716558AF83,716558AF8,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAQ85,P7807HAQ8,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+USP7807HAT25,P7807HAT2,direct,"Petroleos De Venezuela, S.A.",ve,Corp,true
+US3682872078,368287207,direct,Public Joint Stock Company Gazprom,ru,Depositary Receipt,false
+US36829G1076,36829G107,direct,Public Joint Stock Company Gazprom Neft,ru,Depositary Receipt,false
+US73181M1099,73181M109,direct,Public Joint Stock Company Polyus,ru,Depositary Receipt,false
+US73181M1172,73181M117,direct,Public Joint Stock Company Polyus,ru,Depositary Receipt,false
+US8181503025,818150302,direct,Public Joint Stock Company Severstal,ru,Depositary Receipt,false
+US5591892048,559189204,direct,Publichnoe Aktsionernoe Obschestvo Magnitogorskiy Metallurgicheskiy Kombinat,ru,Depositary Receipt,false
+US48122U2042,48122U204,direct,SISTEMA PUBLIC JOINT STOCK FINANCIAL CORPORATION,ru,Depositary Receipt,false
+US48122U1051,48122U105,direct,SISTEMA PUBLIC JOINT STOCK FINANCIAL CORPORATION,ru,,false
+US8688611057,868861105,direct,SURGUTNEFTEGAS,ru,Depositary Receipt,false
+US8688612048,868861204,direct,SURGUTNEFTEGAS,ru,Depositary Receipt,false
+US81663N2062,81663N206,direct,Semiconductor Manufacturing International Corporation,cn;ky,Depositary Receipt,false
+US46630Q1031,46630Q103,direct,VTB Bank,cn;in;ru,Depositary Receipt,false
+US46630Q3011,46630Q301,direct,VTB Bank,cn;in;ru,,false
+US46630Q2021,46630Q202,direct,VTB Bank,cn;in;ru,Depositary Receipt,false
+US46630Q4001,46630Q400,direct,VTB Bank,cn;in;ru,,false
+US6074094060,607409406,direct,"Публичное акционерное общество ""Мобильные ТелеСистемы""",ru,,false
+US6074092080,607409208,direct,"Публичное акционерное общество ""Мобильные ТелеСистемы""",ru,,false
+US6074093070,607409307,direct,"Публичное акционерное общество ""Мобильные ТелеСистемы""",ru,,false
+US6074091090,607409109,direct,"Публичное акционерное общество ""Мобильные ТелеСистемы""",ru,Depositary Receipt,false
+US8766292051,876629205,direct,"публичное акционерное общество ""Татнефть"" имени В.Д. Шашина",ru,Depositary Receipt,false
+US12625GAF19,12625GAF1,indirect,CNOOC Limited,,Corp,true
+US12625GAG91,12625GAG9,indirect,CNOOC Limited,,Corp,true
+US65334HAE27,65334HAE2,indirect,CNOOC Limited,,Corp,true
+US12615TAB44,12615TAB4,indirect,CNOOC Limited,,Corp,true
+US12591DAD30,12591DAD3,indirect,CNOOC Limited,,Corp,true
+US12625GAD60,12625GAD6,indirect,CNOOC Limited,,Corp,true
+USG21886AB53,G21886AB5,indirect,CNOOC Limited,,Corp,true
+US65334HAG74,65334HAG7,indirect,CNOOC Limited,,Corp,true
+US65334HAA05,65334HAA0,indirect,CNOOC Limited,,Corp,true
+US136420AF31,136420AF3,indirect,CNOOC Limited,,Corp,true
+US12591DAB73,12591DAB7,indirect,CNOOC Limited,,,
+US65334HAJ14,65334HAJ1,indirect,CNOOC Limited,,Corp,true

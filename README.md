@@ -22,6 +22,37 @@ name search never sees those. Walking the ownership graph does.
 > [`docs/superpowers/specs/2026-06-02-sanctioned-securities-trading-radar-design.md`](docs/superpowers/specs/2026-06-02-sanctioned-securities-trading-radar-design.md)
 > for the full design and [`docs/superpowers/plans/`](docs/superpowers/plans/) for the build plan.
 
+## Real-data results (run 2026-06-02, free data only)
+
+First end-to-end run on live data (OpenSanctions + GLEIF API + OpenFIGI). Full write-up in
+[`docs/REAL-FINDINGS.md`](docs/REAL-FINDINGS.md); raw outputs in [`results/`](results/).
+
+| Step | Count |
+|------|------:|
+| Sanctioned companies (OpenSanctions, `sanctioned=true`) | 11,689 |
+| Distinct sanctioned ISINs | 9,705 |
+| US ISINs — **direct** layer | 74 |
+| …real bonds after OpenFIGI (ADRs/equity removed) | **22** |
+| GLEIF descendant (subsidiary) LEIs | 117 |
+| US bonds — **indirect** layer (subsidiary, not directly listed) | **11** |
+| **Total US sanctioned bonds (direct + indirect)** | **33** |
+| With a *free* FINRA trade signal | **0** (no free, no-auth FINRA feed exists) |
+
+**What this shows**
+
+- The direct intersection is **marginal but real**: ~22 US bonds, dominated by **PDVSA
+  (Venezuela)** and **Russian sovereign** debt. ADRs (Sberbank, VTB, China Mobile…) were
+  correctly filtered out as equity.
+- The **indirect layer is the project's whole point**: 11 US bonds issued by **subsidiaries
+  of CNOOC** (e.g. Nexen Inc, CNOOC Finance) that are **not themselves on any sanctions list**.
+  A name search misses every one; walking the ownership chain surfaces them.
+- **FINRA's free tier has no machine-readable, no-auth trade endpoint** (WAF + OAuth gate),
+  so the "is it trading *right now*" signal needs a free FINRA account or a paid TRACE feed —
+  a quantified cost decision, exactly as the design predicted.
+
+Reproduce: `scripts/real_report.py` → `scripts/step1_openfigi.py` → `scripts/step2_traverse.py`
+→ `scripts/final_consolidate.py` (outputs go to `data/out_real/`).
+
 ## Who it's for
 
 Bank/broker compliance desks, regulators (OFAC, SEC), and investigative journalists who want
