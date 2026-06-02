@@ -106,7 +106,7 @@ GLEIF Level-2 bulk ─┘
   + a sanctioned legal-entity dataset (Consolidated Sanctions / Companies) for `leiCode`;
   GLEIF ISIN-to-LEI mapping (bulk CSV); GLEIF Level-2 relationship records (bulk).
 - Outputs:
-  - `sanctioned_securities(isin, ticker, figi, issuer_name, issuer_entity_id, source)`
+  - `sanctioned_securities(isin, ticker, figi, security_name, issuer_entity_id, source)`
   - `sanctioned_entities(entity_id, name, lei, country, topics)`
   - `isin_to_lei(isin, lei)` (GLEIF, world)
   - `lei_relations(parent_lei, child_lei, relation_type)` (GLEIF Level-2)
