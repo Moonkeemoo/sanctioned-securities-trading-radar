@@ -1,0 +1,20 @@
+# Data (bulk dumps, interim parquet) — never commit large/raw data
+data/raw/
+data/interim/
+*.parquet
+*.duckdb
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
